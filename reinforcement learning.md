@@ -18,15 +18,22 @@ In which:
 Reward: $R(\tau) = \sum r_t$  is a random variable, only its expectation could be calculated
 $$
 E(R_\theta) = \sum_{\tau}R(\tau)P_{\theta}(\tau)
-
-\Delta E(R_\theta) = \sum_{\tau}R(\tau)\Delta P_{\theta}(\tau)
-
-= \sum_{\tau}R(\tau) P_{\theta}(\tau) \Delta log P_{\theta}(\tau)
-
-sampling $\approx \frac{1}{N}\sum_{n=1}^{N}R(\tau^n) \Delta log P_{\theta}(\tau^n)$
-
-= $\frac{1}{N}\sum_{n=1}^{N} \sum_{t=1}^{tn} R(\tau^n) \Delta log P_{\theta}(a_t^n|s_t^n)$, because other parts are not derivable
 $$
+$$
+\Delta E(R_\theta) = \sum_{\tau}R(\tau)\Delta P_{\theta}(\tau)
+$$
+$$
+= \sum_{\tau}R(\tau) P_{\theta}(\tau) \Delta log P_{\theta}(\tau)
+$$
+sampling
+$$
+\approx \frac{1}{N}\sum_{n=1}^{N}R(\tau^n) \Delta log P_{\theta}(\tau^n)
+$$
+because other parts are not derivable
+$$
+= \frac{1}{N}\sum_{n=1}^{N} \sum_{t=1}^{tn} R(\tau^n) \Delta log P_{\theta}(a_t^n|s_t^n)
+$$
+
 
 #### Tip 1, add a baseline
 $E(R_\theta) \approx \frac{1}{N}\sum_{n=1}^{N} \sum_{t=1}^{tn} (R(\tau^n)-b) \Delta log P_{\theta}(a_t^n|s_t^n)$
