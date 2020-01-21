@@ -11,24 +11,22 @@ Probability of this trajectory: $P_{\theta}(\tau) = p(s_1)p(a_1|s_1)p(s_2|a_1,s_
 
 In which: 
 
-$\theta$ is the parameters of our policy
+- $\theta$ is the parameters of our policy
 
-$p(a_i|s_i)$ is what we can control. We will adjust the policy to maxmize **Reward** 
+- $p(a_i|s_i)$ is what we can control. We will adjust the policy to maxmize **Reward** 
 
 Reward: $R(\tau) = \sum r_t$  is a random variable, only its expectation could be calculated
 $$
 E(R_\theta) = \sum_{\tau}R(\tau)P_{\theta}(\tau)
-$$
-$$
+
 \Delta E(R_\theta) = \sum_{\tau}R(\tau)\Delta P_{\theta}(\tau)
-$$
-$$
+
 = \sum_{\tau}R(\tau) P_{\theta}(\tau) \Delta log P_{\theta}(\tau)
-$$
+
 sampling $\approx \frac{1}{N}\sum_{n=1}^{N}R(\tau^n) \Delta log P_{\theta}(\tau^n)$
 
 = $\frac{1}{N}\sum_{n=1}^{N} \sum_{t=1}^{tn} R(\tau^n) \Delta log P_{\theta}(a_t^n|s_t^n)$, because other parts are not derivable
-
+$$
 
 #### Tip 1, add a baseline
 $E(R_\theta) \approx \frac{1}{N}\sum_{n=1}^{N} \sum_{t=1}^{tn} (R(\tau^n)-b) \Delta log P_{\theta}(a_t^n|s_t^n)$
